@@ -1,0 +1,18 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+:root {
+  background-color: #003;
+  color: #eee;
+}
+
+body {
+  max-width: 1400px;
+  font-size: 16px;
+
+  margin: 0 auto;
+  padding: 0;
+}
