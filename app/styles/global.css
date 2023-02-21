@@ -5,7 +5,12 @@
 }
 
 :root {
-  background-color: #003;
+  --chat-bg-color: #030b21;
+  --chat-message-own-bg-color: #0a1b4c;
+  --chat-message-forgein-bg-color: #222036;
+
+  font-size: 16px;
+  background-color: #050505;
   color: #eee;
 }
 
@@ -15,4 +20,98 @@ body {
 
   margin: 0 auto;
   padding: 0;
+}
+
+.chat_tab {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  padding: 1rem 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1.2rem;
+
+  background-color: var(--chat-bg-color);
+}
+
+.chat_message {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  width: fit-content;
+  max-width: max(70%, 14rem);
+  padding: 0.9rem;
+
+  border-radius: 1rem;
+
+  font-size: 1rem;
+}
+
+.chat_message::before {
+  --chat-message-ownership-indicator-width: 1rem;
+
+  position: absolute;
+  top: 0;
+
+  width: var(--chat-message-ownership-indicator-width);
+  aspect-ratio: 1/1;
+
+  content: "";
+  background-color: inherit;
+
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.chat_message__content {
+  margin: 0;
+
+  white-space: break-spaces;
+  word-break: break-all;
+}
+
+.chat_message__date {
+  opacity: 0.7;
+}
+
+.chat_message_own {
+  align-self: end;
+  align-items: end;
+
+  border-top-right-radius: 0;
+  background-color: var(--chat-message-own-bg-color);
+}
+
+.chat_message_own::before {
+  right: -1rem;
+
+  transform: unset;
+  /* right: var(--chat-message-ownership-indicator-width); */
+  /* TODO: how to convert a value to negative (or change sign) in CSS */
+}
+
+.chat_message_forgein {
+  align-self: start;
+  align-items: start;
+
+  border-top-left-radius: 0;
+  background-color: var(--chat-message-forgein-bg-color);
+}
+
+.chat_message_forgein::before {
+  left: -1rem;
+
+  transform: rotateY(180deg);
+  /* left: var(--chat-message-ownership-indicator-width); */
+  /* TODO: how to convert a value to negative (or change sign) in CSS */
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 12px;
+  }
 }
