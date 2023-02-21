@@ -15,6 +15,7 @@
   --chat-message-own-bg-color: #0a1b4c;
   --chat-message-forgein-bg-color: #222036;
 
+  --chat-list-item-bg-color: #030c25;
   font-size: 16px;
   background-color: var(--primary-color);
   color: #eee;
@@ -50,7 +51,19 @@ input:focus {
   outline: none;
 }
 
+ol,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
 .chat_tab {
+  grid-area: chat_tab;
+
   max-width: 1000px;
   margin: 0 auto;
 
@@ -162,7 +175,63 @@ input:focus {
 }
 
 .chat_input_box__submit_icon {
-  width: 2.8rem;
+  max-width: 2.8rem;
+}
+
+/* chat list */
+.main_aside {
+  grid-area: chat_list;
+
+  background-color: var(--secondary-color);
+}
+
+.chat_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 1rem;
+}
+
+.chat_list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 1rem;
+
+  background-color: var(--chat-list-item-bg-color);
+}
+
+.chat_list__item__contact_info {
+  width: 100%;
+  gap: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.chat_list__item__contact_name {
+  margin: 0;
+}
+
+.chat_list__item__contact_avatar {
+  max-width: 2rem;
+}
+
+.chat_list__item__last_msg_date {
+  width: 1fr;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* main container */
+.main_container {
+  display: grid;
+  gap: 0;
+  grid-template-areas: "chat_list chat_tab";
+  grid-template-columns: 1fr 3fr;
 }
 
 @media screen and (max-width: 768px) {
