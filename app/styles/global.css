@@ -5,12 +5,18 @@
 }
 
 :root {
+  --primary-color: #050505;
+  --secondary-color: #282730;
+  --terciary-color: #6f0202;
+  --complement-color: #9000cd;
+
   --chat-bg-color: #030b21;
+  /* --chat-input-box-bg-color: #120629; */
   --chat-message-own-bg-color: #0a1b4c;
   --chat-message-forgein-bg-color: #222036;
 
   font-size: 16px;
-  background-color: #050505;
+  background-color: var(--primary-color);
   color: #eee;
 
   font-family: Syne, Raleway, Poppins, system-ui, -apple-system,
@@ -29,6 +35,19 @@ body {
 
   margin: 0 auto;
   padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+input {
+  border-radius: 5px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 .chat_tab {
