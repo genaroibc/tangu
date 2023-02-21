@@ -4,7 +4,8 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "generate-types": "npx supabase gen types typescript --project-id=xheenshhnbxpbzktgish > ./app/types/db.ts"
   },
   "dependencies": {
     "@remix-run/node": "^1.13.0",
@@ -22,6 +23,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.27.0",
+    "supabase": "^1.38.6",
     "typescript": "^4.8.4"
   },
   "engines": {
