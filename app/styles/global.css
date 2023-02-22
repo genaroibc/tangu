@@ -62,12 +62,16 @@ li {
 }
 
 .chat_tab {
+  position: relative;
+
+  max-height: 80vh;
+  overflow: auto;
   grid-area: chat_tab;
 
   max-width: 1000px;
   margin: 0 auto;
 
-  padding: 1rem 2rem;
+  padding: 0 2rem;
 
   display: flex;
   flex-direction: column;
@@ -153,6 +157,9 @@ li {
 
 /* Chat input box */
 .chat_input_box {
+  position: sticky;
+  bottom: 0;
+
   width: 100%;
 
   display: flex;
