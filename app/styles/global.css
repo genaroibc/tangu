@@ -221,7 +221,6 @@ li {
 }
 
 .chat_list__item__last_msg_date {
-  width: 1fr;
   opacity: 0.8;
   white-space: nowrap;
 }
@@ -232,6 +231,29 @@ li {
   gap: 0;
   grid-template-areas: "chat_list chat_tab";
   grid-template-columns: 1fr 3fr;
+}
+
+/* chat tab header */
+.chat_tab_header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.chat_tab_header__contact {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.5rem;
+
+  background-color: #111;
+}
+
+.chat_tab_header__contact__img {
+  max-width: 2rem;
 }
 
 @media screen and (max-width: 768px) {
