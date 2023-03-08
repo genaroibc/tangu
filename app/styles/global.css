@@ -7,13 +7,13 @@
 :root {
   --primary-color: #050505;
   --secondary-color: #282730;
-  --terciary-color: #6f0202;
+  --tertiary-color: #6f0202;
   --complement-color: #9000cd;
 
   --chat-bg-color: #030b21;
   /* --chat-input-box-bg-color: #120629; */
   --chat-message-own-bg-color: #0a1b4c;
-  --chat-message-forgein-bg-color: #222036;
+  --chat-message-foreign-bg-color: #222036;
 
   --chat-list-item-bg-color: #030c25;
   font-size: 16px;
@@ -139,15 +139,15 @@ li {
   /* TODO: how to convert a value to negative (or change sign) in CSS */
 }
 
-.chat_message_forgein {
+.chat_message_foreign {
   align-self: start;
   align-items: start;
 
   border-top-left-radius: 0;
-  background-color: var(--chat-message-forgein-bg-color);
+  background-color: var(--chat-message-foreign-bg-color);
 }
 
-.chat_message_forgein::before {
+.chat_message_foreign::before {
   left: -1rem;
 
   transform: rotateY(180deg);

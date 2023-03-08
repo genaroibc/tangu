@@ -3,12 +3,12 @@ import type { Database } from "~/types/db";
 export function ChatMessage({
   content,
   created_at,
-  id
+  id,
 }: Database["public"]["Tables"]["messages"]["Row"]) {
   const isOwn = Math.random() > 0.5;
   const ownerShipClassName = isOwn
     ? "chat_message_own"
-    : "chat_message_forgein";
+    : "chat_message_foreign";
 
   return (
     <div className={`chat_message ${ownerShipClassName}`}>
