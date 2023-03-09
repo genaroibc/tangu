@@ -7,6 +7,7 @@ specifiers:
   '@remix-run/react': ^1.13.0
   '@remix-run/serve': ^1.13.0
   '@remix-run/vercel': ^1.13.0
+  '@supabase/auth-helpers-remix': 0.1.5
   '@supabase/supabase-js': 2.8.0
   '@types/react': ^18.0.25
   '@types/react-dom': ^18.0.8
@@ -21,6 +22,7 @@ dependencies:
   '@remix-run/node': 1.13.0
   '@remix-run/react': 1.13.0_biqbaboplfbrettd7655fr4n2y
   '@remix-run/vercel': 1.13.0_@vercel+node@2.9.6
+  '@supabase/auth-helpers-remix': 0.1.5_h4fmw4dd6b3xkulak4k3c7hqqu
   '@supabase/supabase-js': 2.8.0
   '@vercel/node': 2.9.6
   react: 18.2.0
@@ -1923,6 +1925,23 @@ packages:
     resolution: {integrity: sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==}
     engines: {node: '>=10'}
     dev: true
+
+  /@supabase/auth-helpers-remix/0.1.5_h4fmw4dd6b3xkulak4k3c7hqqu:
+    resolution: {integrity: sha512-ci8XlndEy06Qd9rlRL3DfWCB5ddnjWN5mtrwUrw5hkjCTWwjLiRvslt8bu3aLXBQ55YVvqyjybsmfKHwXTURgw==}
+    peerDependencies:
+      '@supabase/supabase-js': ^2.0.4
+    dependencies:
+      '@supabase/auth-helpers-shared': 0.3.0_h4fmw4dd6b3xkulak4k3c7hqqu
+      '@supabase/supabase-js': 2.8.0
+    dev: false
+
+  /@supabase/auth-helpers-shared/0.3.0_h4fmw4dd6b3xkulak4k3c7hqqu:
+    resolution: {integrity: sha512-6lKhVMBZnGdFelpZyvQDBQSOY+pglS6a5U4ieAqfKQ/rx3rSjRASR3UGh7V+el1re3xYe3ddVBWXw16rdVAzrQ==}
+    peerDependencies:
+      '@supabase/supabase-js': ^2.0.4
+    dependencies:
+      '@supabase/supabase-js': 2.8.0
+    dev: false
 
   /@supabase/functions-js/2.0.0:
     resolution: {integrity: sha512-ozb7bds2yvf5k7NM2ZzUkxvsx4S4i2eRKFSJetdTADV91T65g4gCzEs9L3LUXSrghcGIkUaon03VPzOrFredqg==}
