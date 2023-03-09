@@ -1,3 +1,4 @@
+import { createServerClient } from "@supabase/auth-helpers-remix";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "~/types/db";
 
@@ -9,4 +10,16 @@ if (!SUPABASE_URL)
 if (!SUPABASE_ANON_KEY)
   throw new Error("'SUPABASE_ANON_KEY' env variable is not defined");
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY);
+export const supabaseClient = createClient<Database>(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+export const createSupabaseServerClient = (
+  request: Request,
+  response: Response
+) =>
+  createServerClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    request,
+    response,
+  });
