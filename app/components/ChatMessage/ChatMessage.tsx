@@ -3,10 +3,9 @@ import type { Database } from "~/types/db";
 export function ChatMessage({
   content,
   created_at,
-  id,
+  is_own,
 }: Database["public"]["Tables"]["messages"]["Row"]) {
-  const isOwn = Math.random() > 0.5;
-  const ownerShipClassName = isOwn
+  const ownerShipClassName = is_own
     ? "chat_message_own"
     : "chat_message_foreign";
 

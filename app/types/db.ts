@@ -14,16 +14,19 @@ export interface Database {
           content: string
           created_at: string
           id: string
+          is_own: boolean
         }
         Insert: {
           content: string
           created_at?: string
           id?: string
+          is_own: boolean
         }
         Update: {
           content?: string
           created_at?: string
           id?: string
+          is_own?: boolean
         }
       }
     }
