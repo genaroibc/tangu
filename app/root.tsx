@@ -1,8 +1,5 @@
-import type {
-  LinksFunction,
-  LoaderFunction,
-  MetaFunction,
-} from "@remix-run/node";
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -11,10 +8,12 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useRevalidator,
 } from "@remix-run/react";
-import { createClient } from "@supabase/supabase-js";
-import { useState } from "react";
+import { createBrowserClient } from "@supabase/auth-helpers-remix";
+import { useEffect, useState } from "react";
 import globalStyles from "~/styles/global.css";
+import { createSupabaseServerClient } from "./lib/supabase.server";
 
 export const links: LinksFunction = () => [
   { href: globalStyles, rel: "stylesheet" },
@@ -26,22 +25,53 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
-export const loader: LoaderFunction = () => {
+export const loader = async ({ request }: LoaderArgs) => {
   const env = {
     SUPABASE_URL: process.env.SUPABASE_URL,
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
   };
 
-  return {
-    env,
-  };
+  Object.entries(env).forEach(([envVarName, envVarValue]) => {
+    if (envVarValue === undefined) {
+      throw new Error(`'${envVarName}' env variable is not defined`);
+    }
+  });
+
+  const response = new Response();
+  const supabase = createSupabaseServerClient(request, response);
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  return json(
+    {
+      env,
+      session,
+    },
+    { headers: response.headers }
+  );
 };
 
 export default function App() {
-  const { env } = useLoaderData<typeof loader>();
+  const { env, session: serverSession } = useLoaderData<typeof loader>();
+  const { revalidate } = useRevalidator();
+
   const [supabaseClient] = useState(() =>
-    createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY)
+    createBrowserClient(env.SUPABASE_URL!, env.SUPABASE_ANON_KEY!)
   );
+
+  useEffect(() => {
+    const { data } = supabaseClient.auth.onAuthStateChange((event, session) => {
+      if (session?.access_token !== serverSession?.access_token) {
+        revalidate();
+      }
+    });
+
+    return () => {
+      data.subscription.unsubscribe();
+    };
+  });
 
   return (
     <html lang="en">
