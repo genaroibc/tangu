@@ -1,7 +1,7 @@
 import type { Database } from "~/types/db";
 import { ChatInputBox } from "~/components/ChatInputBox/ChatInputBox";
 import { ChatMessage } from "~/components/ChatMessage/ChatMessage";
-import { ChatTabHeader } from "../ChatTabHeader/ChatTabHeader";
+import { ChatTabHeader } from "~/components/ChatTabHeader/ChatTabHeader";
 
 type Props = {
   messages: Array<Database["public"]["Tables"]["messages"]["Row"]>;
