@@ -5,7 +5,9 @@ export function useSupabaseClient() {
   const { supabaseClient } = useOutletContext<OutletContext>();
 
   if (!supabaseClient) {
-    throw new Error("'supabase' property from useOutletContext is not defined");
+    throw new Error(
+      "'supabaseClient' property from useOutletContext is not defined"
+    );
   }
 
   return supabaseClient;
