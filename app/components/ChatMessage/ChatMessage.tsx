@@ -1,10 +1,10 @@
 import type { Database } from "~/types/db";
 
-export function ChatMessage({
-  content,
-  created_at,
-  is_own,
-}: Database["public"]["Tables"]["messages"]["Row"]) {
+type Props = Database["public"]["Tables"]["messages"]["Row"] & {
+  is_own: boolean;
+};
+
+export function ChatMessage({ content, created_at, is_own }: Props) {
   const ownerShipClassName = is_own
     ? "chat_message_own"
     : "chat_message_foreign";

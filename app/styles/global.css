@@ -92,6 +92,16 @@ button:hover {
   gap: 1.2rem;
 
   background-color: var(--chat-bg-color);
+
+  scrollbar-track-color: red;
+}
+
+.chat_tab::-webkit-scrollbar {
+  width: 3px;
+}
+
+.chat_tab::-webkit-scrollbar-thumb {
+  background-color: #666;
 }
 
 .chat_message {
@@ -172,12 +182,14 @@ button:hover {
 .chat_input_box {
   position: sticky;
   bottom: 0;
+}
 
+.chat_input_box__form {
   width: 100%;
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 0.5rem;
 
   padding: 1rem;
@@ -185,7 +197,7 @@ button:hover {
   background-color: transparent;
 }
 
-.chat_input_box__input {
+.chat_input_box__form__input {
   padding: 1rem;
 
   border-radius: 1.5rem;
@@ -194,13 +206,16 @@ button:hover {
   box-shadow: 0 0.1rem 5px 1px #0006;
 }
 
-.chat_input_box__submit_button__icon {
-  width: 100%;
-  max-width: 2.5rem;
+.chat_input_box__form__submit_button__icon {
+  height: 2.5rem;
+  width: 2.5rem;
+
+  max-width: 100%;
 }
 
-.chat_input_box__submit_button {
+.chat_input_box__form__submit_button {
   border-radius: 5px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

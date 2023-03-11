@@ -1,17 +1,25 @@
+import { Form } from "@remix-run/react";
+
 export function ChatInputBox() {
   return (
     <div className="chat_input_box">
-      <input
-        required
-        placeholder="your message"
-        className="chat_input_box__input"
-      />
+      <Form method="post" className="chat_input_box__form">
+        <input
+          name="message"
+          id="message"
+          required
+          placeholder="your message"
+          className="chat_input_box__form__input"
+        />
 
-      <img
-        className="chat_input_box__submit_icon"
-        src="/svg/circle-arrow.svg"
-        alt="send message"
-      />
+        <button className="chat_input_box__form__submit_button">
+          <img
+            className="chat_input_box__form__submit_button__icon"
+            src="/svg/circle-arrow.svg"
+            alt="send message"
+          />
+        </button>
+      </Form>
     </div>
   );
 }
