@@ -30,13 +30,16 @@ export function Login() {
   };
 
   return (
-    <section className="login_form">
+    <section className="flex justify-center items-center gap-4">
       <button onClick={handleLogin}>Log in</button>
-      <button className="login_form__signout_btn" onClick={handleSignOut}>
+      <button
+        className="bg-transparent border-solid border-2 border-complement-color"
+        onClick={handleSignOut}
+      >
         Sign out
       </button>
 
-      <p className="login_form__error_pgph">{error}</p>
+      <p className="text-red-500 text-base">{error}</p>
     </section>
   );
 }

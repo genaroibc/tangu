@@ -243,21 +243,3 @@ button:hover {
     font-size: 12px;
   }
 }
-
-/* LOGIN FORM */
-.login_form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.login_form__signout_btn {
-  background-color: transparent;
-  border: 2px solid var(--complement-color);
-}
-
-.login_form__error_pgph {
-  color: rgb(255, 26, 26);
-  font-size: 0.9rem;
-}
