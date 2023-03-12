@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #666;
+}
+
 :root {
   --primary-color: #050505;
   --secondary-color: #282730;
@@ -76,36 +84,6 @@ button {
 
 button:hover {
   cursor: pointer;
-}
-
-.chat_tab {
-  position: relative;
-
-  max-height: 80vh;
-  overflow: auto;
-  grid-area: chat_tab;
-
-  max-width: 1000px;
-  margin: 0 auto;
-
-  padding: 0 2rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 1.2rem;
-
-  background-color: var(--chat-bg-color);
-
-  scrollbar-track-color: red;
-}
-
-.chat_tab::-webkit-scrollbar {
-  width: 3px;
-}
-
-.chat_tab::-webkit-scrollbar-thumb {
-  background-color: #666;
 }
 
 .chat_message {

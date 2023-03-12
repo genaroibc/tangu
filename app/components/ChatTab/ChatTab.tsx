@@ -36,7 +36,12 @@ export function ChatTab({ initialMessages, userID }: Props) {
   }, [supabaseClient]);
 
   return (
-    <article className="chat_tab">
+    <article
+      style={{
+        gridArea: "chat_tab",
+      }}
+      className="relative max-h-[80vh] overflow-auto max-w-5xl my-0 mx-auto py-0 px-8 flex flex-col items-end gap-5 bg-chat-bg-color scroll"
+    >
       <ChatTabHeader />
 
       {messages.map(msg => (
