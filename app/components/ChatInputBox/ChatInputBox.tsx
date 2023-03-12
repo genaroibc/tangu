@@ -2,19 +2,22 @@ import { Form } from "@remix-run/react";
 
 export function ChatInputBox() {
   return (
-    <div className="chat_input_box">
-      <Form method="post" className="chat_input_box__form">
+    <div className="sticky bottom-0">
+      <Form
+        method="post"
+        className="w-full flex justify-center items-stretch gap-2 p-4 bg-transparent"
+      >
         <input
           name="message"
           id="message"
           required
           placeholder="your message"
-          className="chat_input_box__form__input"
+          className="p-4 rounded-3xl text-white bg-secondary-color shadow-2xl"
         />
 
-        <button className="chat_input_box__form__submit_button">
+        <button className="rounded h-full flex justify-center items-center bg-transparent">
           <img
-            className="chat_input_box__form__submit_button__icon"
+            className="h-10 w-10 max-w-full"
             src="/svg/circle-arrow.svg"
             alt="send message"
           />

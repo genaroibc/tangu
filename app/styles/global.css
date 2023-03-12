@@ -160,50 +160,6 @@ button:hover {
   /* TODO: how to convert a value to negative (or change sign) in CSS */
 }
 
-/* Chat input box */
-.chat_input_box {
-  position: sticky;
-  bottom: 0;
-}
-
-.chat_input_box__form {
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 0.5rem;
-
-  padding: 1rem;
-
-  background-color: transparent;
-}
-
-.chat_input_box__form__input {
-  padding: 1rem;
-
-  border-radius: 1.5rem;
-  color: #fff;
-  background-color: var(--secondary-color);
-  box-shadow: 0 0.1rem 5px 1px #0006;
-}
-
-.chat_input_box__form__submit_button__icon {
-  height: 2.5rem;
-  width: 2.5rem;
-
-  max-width: 100%;
-}
-
-.chat_input_box__form__submit_button {
-  border-radius: 5px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-}
-
 /* chat list */
 .main_aside {
   grid-area: chat_list;
